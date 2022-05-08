@@ -16,9 +16,9 @@ namespace ConsoleApp8
         public bool EnemyDeath = false;
         public Character()
         {
-            EnemyHP = 200;
+            EnemyHP = 100;
             Heal = 50;
-            HeroHP = 200;
+            HeroHP = 100;
             HeroDeath = false;
             EnemyDeath = false;
         }
@@ -38,7 +38,7 @@ namespace ConsoleApp8
                 }
                 Console.Write(EnemyHP);
                 return;
-            }
+            }            
             foreach (char s in ЗдоровьеПротивника)
             {
                 Console.Write(s);
@@ -50,9 +50,9 @@ namespace ConsoleApp8
         {
             string ЗдоровьеПротивника = "\nЗдоровье противника: ";
             EnemyHP += Heal;
-            if (EnemyHP > 200)
+            if (EnemyHP > 100)
             {
-                EnemyHP = 200;
+                EnemyHP = 100;
             }
          
             foreach (char s in ЗдоровьеПротивника)
@@ -66,6 +66,14 @@ namespace ConsoleApp8
         public void SetDamage(int dmg)
         {
             GetDamage(dmg);
+        }
+        public void Round()
+        {
+            EnemyHP = 100;
+            if (EnemyHP > 0)
+            {
+                EnemyDeath = false;
+            }
         }
 
 

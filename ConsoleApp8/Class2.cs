@@ -15,9 +15,9 @@ namespace ConsoleApp8
         public bool HeroDeath = false;
         public Enemy()
         {
-            EnemyHP = 200;
+            EnemyHP = 100;
             Heal = 50;
-            HeroHP = 200;
+            HeroHP = 100;
             HeroDeath = false;
         }
 
@@ -48,9 +48,9 @@ namespace ConsoleApp8
         {
             string ЗдоровьеГероя = "\nВаше здоровье: ";
             HeroHP += Heal;
-            if (HeroHP > 200)
+            if (HeroHP > 100)
             {
-                HeroHP = 200;
+                HeroHP = 100;
             }
                      
             foreach (char s in ЗдоровьеГероя)
@@ -65,7 +65,14 @@ namespace ConsoleApp8
         {
             GetDamage(dmg);
         }
-
+        public void Round()
+        {
+            HeroHP = 100;
+            if (HeroHP > 0)
+            {
+                HeroDeath = false;
+            }
+        }
 
 
     }
