@@ -44,30 +44,15 @@ namespace ConsoleApp8
             }
             Console.Write(HeroHP);
         }       
-        public virtual void HealHero()
+        public virtual void HealHero(int Heal)
         {
             string ЗдоровьеГероя = "\nВаше здоровье: ";
             HeroHP += Heal;
-            if (HeroHP == 150)
+            if (HeroHP > 100)
             {
-                HeroHP -= Heal;
+                HeroHP = 100;
             }
-            if (HeroHP == 140)
-            {
-                HeroHP -= 40;
-            }
-            if (HeroHP == 130)
-            {
-                HeroHP -= 30;
-            }
-            if (HeroHP == 120)
-            {
-                HeroHP -= 20;
-            }
-            if (HeroHP == 110)
-            {
-                HeroHP -= 10;
-            }            
+                     
             foreach (char s in ЗдоровьеГероя)
             {
                 Console.Write(s);

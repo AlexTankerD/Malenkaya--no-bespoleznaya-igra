@@ -51,18 +51,10 @@ namespace ConsoleApp8
             Character Character = new Character();
             Random random = new Random();            
             string Начать = "НАЧАТЬ (SPACEBAR): ";
-            string Начать1 = "НАЧАТЬ? (SPACEBAR): ";
-            string Удар1 = "Противник нанёс вам удар в паховую область (50 DMG)";
-            string Удар2 = "Противник нанёс вам удар в глаз (40 DMG)";
-            string Удар3 = "Противник пнул вас под зад (30 DMG)";
+            string Начать1 = "НАЧАТЬ? (SPACEBAR): ";                                
             string ПротивникПромахнулся = "Противник промахнулся (0 DMG)";
-            string ВыУмерли = "                                                           YOU DIED";
-            string ПротивникИспользовалАптечку = "Противник использовал аптечку(+50HP)";
-            string ВыИспользовалиАптечку = "Вы использовали аптечку(+50HP)";
-            string УдарПротивника1 = "Вы нанесли противнику удар в паховую область (50 DMG)";
-            string УдарПротивника2 = "Вы нанесли противнику удар в глаз (40 DMG)";
+            string ВыУмерли = "                                                           YOU DIED";          
             string ВыПромахнулись = "Вы промахнулись (0 DMG)";
-            string УдарПротивника3 = "Вы пнули противника под зад (30 DMG)";
             string ПротивникУмер = "                                                      ENEMY DIED";
             string КОНЕЦИГРЫ = "                                                        КОНЕЦ ИГРЫ";
             string НАЖМИТЕSPACEBAR = "НАЖМИТЕ BACKSPACE ЧТОБЫ НАЧАТЬ ЗАНОВО ИЛИ SPACEBAR ЧТОБЫ ЗАКОНЧИТЬ";
@@ -98,34 +90,40 @@ namespace ConsoleApp8
                 }
                 
             }
+
             for (; ; )
             {
                 int Random1 = random.Next(1,6);
                 int Random2 = random.Next(1,6);                
                 if (Random2 == 1)
                 {
-                    foreach (char s in УдарПротивника1)
+                    int Hit1 = random.Next(30, 50);
+                    string Удар1 = "Вы нанесли противнику удар в паховую область (" + Hit1 + "DMG)";
+                    foreach (char s in Удар1)
                     {
                         Console.Write(s);
                         Thread.Sleep(30);
                     }
-                    Character.GetDamage(50);
+                    Character.GetDamage(Hit1);
                     Thread.Sleep(3000);
                     Console.Clear();
                 }
                 else if (Random2 == 2)
                 {
-                    foreach (char s in УдарПротивника2)
+                    int Hit2 = random.Next(20, 40);
+                    string Удар2 = "Вы нанесли противнику удар в глаз (" + Hit2 + "DMG)";
+                    foreach (char s in Удар2)
                     {
                         Console.Write(s);
                         Thread.Sleep(30);
                     }
-                    Character.GetDamage(40);
+                    Character.GetDamage(Hit2);
                     Thread.Sleep(3000);
                     Console.Clear();
                 }
                 else if (Random2 == 3)
                 {
+
                     foreach (char s in ВыПромахнулись)
                     {
                         Console.Write(s);
@@ -137,23 +135,27 @@ namespace ConsoleApp8
                 }
                 else if (Random2 == 4)
                 {
-                    foreach (char s in УдарПротивника3)
+                    int Hit3 = random.Next(10, 30);
+                    string Удар3 = "Вы пнули противника под зад (" + Hit3 + "DMG)";
+                    foreach (char s in Удар3)
                     {
                         Console.Write(s);
                         Thread.Sleep(30);
                     }
-                    Character.GetDamage(30);
+                    Character.GetDamage(Hit3);
                     Thread.Sleep(3000);
                     Console.Clear();
                 }
                 else if (Random2 == 5)
                 {
+                    int Heal = random.Next(30, 50);
+                    string ВыИспользовалиАптечку = "Вы использовали аптечку (+" + Heal + "HP)";
                     foreach (char s in ВыИспользовалиАптечку)
                     {
                         Console.Write(s);
                         Thread.Sleep(30);
                     }
-                    Enemy.HealHero();
+                    Enemy.HealHero(Heal);
                     Thread.Sleep(3000);
                     Console.Clear();
 
@@ -175,23 +177,27 @@ namespace ConsoleApp8
                 }
                 if (Random1 == 1)
                 {
-                    foreach (char s in Удар1)
+                    int Hit1 = random.Next(30, 50);
+                    string УдарПротивника1 = "Противник нанёс вам удар в паховую область (" + Hit1 + "DMG)";
+                    foreach (char s in УдарПротивника1)
                     {
                         Console.Write(s);
                         Thread.Sleep(30);
                     }
-                    Enemy.GetDamage(50);
+                    Enemy.GetDamage(Hit1);
                     Thread.Sleep(3000);
                     Console.Clear();
                 }
                 else if (Random1 == 2)
                 {
-                    foreach (char s in Удар2)
+                    int Hit2 = random.Next(20, 40);
+                    string УдарПротивника2 = "Противник нанёс вам удар в глаз (" + Hit2 + "DMG)";
+                    foreach (char s in УдарПротивника2)
                     {
                         Console.Write(s);
                         Thread.Sleep(30);
                     }
-                    Enemy.GetDamage(40);
+                    Enemy.GetDamage(Hit2);
                     Thread.Sleep(3000);
                     Console.Clear();
                 }
@@ -208,23 +214,27 @@ namespace ConsoleApp8
                 }
                 else if (Random1 == 4)
                 {
+                    int Hit3 = random.Next(10, 30);
+                    string Удар3 = "Противник пнул вас под зад (" + Hit3 + "DMG)"; 
                     foreach (char s in Удар3)
                     {
                         Console.Write(s);
                         Thread.Sleep(30);
                     }
-                    Enemy.GetDamage(30);
+                    Enemy.GetDamage(Hit3);
                     Thread.Sleep(3000);
                     Console.Clear();
                 }
                 else if (Random1 == 5)
                 {
+                    int Heal = random.Next(30, 50);
+                    string ПротивникИспользовалАптечку = "Противник использовал аптечку (+" + Heal + "HP)";
                     foreach (char s in ПротивникИспользовалАптечку)
                     {
                         Console.Write(s);
                         Thread.Sleep(30);
                     }
-                    Character.HealEnemy();
+                    Character.HealEnemy(Heal);
                     Thread.Sleep(3000);
                     Console.Clear();
 
@@ -273,8 +283,7 @@ namespace ConsoleApp8
                     continue;
 
             }
-            Console.Clear();
-            return;
+            
             
         }
     }
